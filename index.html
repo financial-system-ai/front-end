@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" id="teste" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assistente Financeiro - IA</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      const  link = document.querySelector("#teste");
+      const currentScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      const changeFavicon = () => {
+        if (currentScheme.matches) link.setAttribute("href", "/logo.svg");
+        else link.setAttribute("href", "/logo-light.svg");
+      };
+      changeFavicon();
+      currentScheme.addEventListener("change", changeFavicon);
+    </script>
+  </body>
+</html>
