@@ -1,55 +1,25 @@
-# React + TypeScript + Vite
+# Comando de Voz para Consulta de Dados Financeiros - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto consiste na interface web para a aplicação de consulta de dados financeiros por meio de comandos de voz, com interpretação por IA e respostas em áudio. A interface foi desenvolvida para ser intuitiva e responsiva, garantindo uma experiência acessível e fluida para os usuários.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interface de Comando de Voz**: O usuário interage com a aplicação utilizando comandos de voz.
+- **Conversão de Fala para Texto (STT)**: Utilização do Azure Speech Services para converter a fala do usuário em texto.
+- **Consulta Inteligente**: O texto processado é enviado para o backend, que consulta os dados financeiros conforme a solicitação.
+- **Síntese de Fala (TTS)**: A resposta do backend é convertida novamente em fala utilizando o Azure Speech Services, retornando ao usuário um feedback por áudio.
+- **Interface Responsiva**: Desenvolvida com React, garantindo compatibilidade em diferentes dispositivos.
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Vite**: Ferramenta de bundling e build para desenvolvimento rápido e eficiente.
+- **React**: Biblioteca para construção da interface do usuário.
+- **TypeScript**: Superset de JavaScript que adiciona tipagem estática ao código, aumentando a segurança e legibilidade.
+- **Azure OpenAI**: Utilizado para o processamento e interpretação dos comandos de voz, permitindo respostas mais precisas e contextualizadas.
+- **Azure Speech Services**: Responsável pelo reconhecimento de fala (speech-to-text) e pela síntese de fala (text-to-speech).
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# front-end
+![Vite](https://img.shields.io/badge/vite-%238A74fE.svg?style=for-the-badge&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/react-%23216CC0.svg?style=for-the-badge&logo=react&logoColor=white)
+![Typescript](https://img.shields.io/badge/typescript-3178c6.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![OpenAi](https://img.shields.io/badge/azure%20open%20ai-%2315A17D.svg?style=for-the-badge&logo=openai&logoColor=white)
+![Azure](https://img.shields.io/badge/azure-%230078d4.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
