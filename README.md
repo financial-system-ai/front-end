@@ -18,6 +18,7 @@ Este projeto consiste na interface web para a aplicação de consulta de dados f
 - **Azure OpenAI**: Utilizado para o processamento e interpretação dos comandos de voz, permitindo respostas mais precisas e contextualizadas.
 - **Azure Speech Services**: Responsável pelo reconhecimento de fala (speech-to-text) e pela síntese de fala (text-to-speech).
 
+
 ![Vite](https://img.shields.io/badge/vite-%238A74fE.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![React](https://img.shields.io/badge/react-%23216CC0.svg?style=for-the-badge&logo=react&logoColor=white)
 ![Typescript](https://img.shields.io/badge/typescript-3178c6.svg?style=for-the-badge&logo=typescript&logoColor=white)
