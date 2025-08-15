@@ -1,20 +1,20 @@
-import { useEffect, useState, type FC } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMicrophone,
   faMicrophoneSlash,
-  faSun,
   faMoon,
+  faSun,
 } from '@fortawesome/free-solid-svg-icons';
-import { speechToText, textToSpeech } from './services/voiceService';
-import { getAIresponse } from './services/iaService';
-import { convertApiCalls } from './services/apiServices';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useEffect, useState, type FC } from 'react';
 import { usePrefersColorScheme } from './hooks/usePrefersColorScheme';
+import { convertApiCalls } from './services/apiServices';
+import { getAIresponse } from './services/iaService';
+import { speechToText, textToSpeech } from './services/voiceService';
 
 import './App.css';
 import Banner from './assets/banner.jpeg';
-import Logo from './assets/logo.svg';
 import LogoLight from './assets/logo-light.svg';
+import Logo from './assets/logo.svg';
 
 type ActionKey = keyof typeof convertApiCalls;
 
@@ -51,27 +51,16 @@ const App: FC = () => {
         speakAndStop('Ocorreu um erro ao processar sua solicitação.');
         return;
       }
-
-      console.log(aiResponse);
-
       const result = await convertApiCalls[aiResponse.acao as ActionKey](
         aiResponse,
       );
-      if (result.error) {
-        speakAndStop(result.message);
-        return;
-      }
 
       setReply(result.message);
-      textToSpeech(result.message);
+      speakAndStop(result.message);
     } catch (e) {
-      console.error('Erro no fluxo:', e);
       const fallback = 'Operação não reconhecida, tente novamente.';
       setReply(fallback);
-      textToSpeech(fallback);
-    } finally {
-      isProcessing(false);
-      setCurrentIcon(faMicrophoneSlash);
+      speakAndStop(fallback);
     }
   };
 
@@ -102,13 +91,11 @@ const App: FC = () => {
             ) : (
               <span>Pressione espaço para iniciar</span>
             )}
-            {reply ? (
+            {reply && (
               <>
                 <span>Pergunta: {text}</span>
                 <span>Resposta: {reply}</span>
               </>
-            ) : (
-              <span></span>
             )}
             <button className="button-voice" onClick={startApplication}>
               <div className="icon-container">
